@@ -17,17 +17,22 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 
 // -- Randomly chooses the Computer letter //
 var computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
+console.log(computerLetter)
 // -- Variables to hold the number of wins, losses, & guesses info //
 var wins = 0;
 var losses = 0;
 var guesses = 9;
 var inputGuess = [];
 
+// -- Display Statistics Variables
+var noGuessesLeft = document.getElementById("guessLeft");
+var listGuesses = document.getElementById("youHaveGuessed");
+var numLosses = document.getElementById("noLosses");
+var numWins = document.getElementById("noWins");
+
 // -- These should fill in the numbers, and letters used in the guess/stats section
 document.getElementById("noWins").innerHTML = "Wins: " + wins;
 document.getElementById("noLosses").innerHTML = "Losses: " + losses;
-document.getElementById("guessLeft").innerHTML = "Guesses Left: " + guesses;
 document.getElementById("youHaveGuessed").innerHTML = "Your guesses, so far: " + inputGuess;
 
 
@@ -39,14 +44,25 @@ document.onkeyup = function (event) {
     var userGuess = event.key;
 
     //-- This should add the wrong guesses to inputGuess Array
-    for (guesses = 9; guesses = 0; guesses--) {
+    //for (var i = 9; i = 0; i--) {
 
-        if (userGuess !== computerLetter) {
+    if ((userGuess !== computerLetter) && (guesses >= 1)) {
             inputGuess.push(userGuess);
             guesses--;
-        } else {
+            noGuessesLeft.textContent = "Guesses Left: " + guesses;
+            listGuesses.textContent = "Your Guesses, so far: " + inputGuess.join(", ");
+        
+     }else if (guesses = 0){
+            losses++;
+            numLosses.textContent = "Losses: " + losses;
+            guesses = 9;
+            inputGuess = [];
+        }else {
             wins++;
+            numWins.textContent = "Wins: " + wins;
+            guesses = 9;
+            inputGuess = [];
+        } 
         }
-    
-    }
-}
+
+//}
