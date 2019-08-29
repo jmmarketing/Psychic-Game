@@ -53,8 +53,8 @@ function psychicGame() {
         if ((userGuess !== computerLetter) && (guesses !== 0)) {
             inputGuess.push(userGuess);
             guesses--;
-            noGuessesLeft.textContent = "Guesses Left: " + guesses;
-            listGuesses.textContent = "Your Guesses, so far: " + inputGuess.join(", ");
+            noGuessesLeft.textContent = guesses;
+            listGuesses.textContent = inputGuess.join(", ");
 
         } else if (guesses === 0) {   //(var i = 0; i=0; losses++) -> Tried this which works the same as removing the lower losses++
             losses++;

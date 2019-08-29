@@ -1,0 +1,63 @@
+body{
+    background: url(../images/psychic-ability.jpg) no-repeat center fixed;
+    background-size: cover;
+    font-family:'Roboto', sans-serif;
+}
+
+h1, h2, h3{
+    font-family:'Archivo Black', sans-serif;
+}
+
+h3{
+    text-align:center;
+    clear:both;
+}
+
+p {
+    padding: 15px;
+}
+
+.mainArea{
+    max-width: 960px;
+    margin: 30px auto;
+    background-color:white;
+    opacity:.8;
+    border: 3px solid grey;
+    border-radius: 12px;
+}
+
+header{
+    padding: 20px;
+    text-align:center;
+}
+
+#gameRules{
+    font-size: 1.4em;
+}
+
+#noWins{
+    float: left;
+    margin-left:40%; 
+}
+
+#noLosses{
+    float: left;
+}
+
+#guessLeft{
+    clear:both;
+    text-align:center;
+    font-size: 1.2em;
+    font-weight:bold;
+}
+#youHaveGuessed{
+    text-align:center;
+    font-size: 1.3em;
+    font-weight:bolder;
+    color:red;
+}
+#gameMessage{
+    font-size:2em;
+    text-align:center;
+    margin-bottom:20px;
+}

@@ -6,33 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic Game</title>
-    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+    
+    <link rel="stylesheet" href="assets/css/reset.css">
+    
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
     <!-- Game Title and Directions-->
-    <header>
-        <h1>The Psychic Game</h1>
-        <p>The computer will randomly select a letter. Using your keyboard, you have to guess which letter that is. You
-            are given 9 guesses. If you use all 9 guess, YOU LOSE!</p>
+    <div class="mainArea">
+        <header>
+            <img src="assets/images/giphy.gif" width="25%" height="auto" >
+            <h1>The Psychic Game</h1>
+            <p id="gameRules">The computer will randomly select a letter (A-Z). <br>Using your keyboard, guess which letter that is.
+                <br>You are given 9 guesses. If you use all 9 guess, YOU LOSE!</p>
+            <br>
+            <h2> Guess what letter I am thinking of!</h2>
+        </header>
+
+        <!-- Begin Actual Game-->
+
+        <!-- Statistics Section-->
+        <h3>Your Win/Loss Stats</h3>
+        <p id="noWins">Wins: 0</p>
+        <p id="noLosses">Losses: 0</p>
+
+        <!-- Guesses Section-->
+        <h3>Remaining Guesses</h3>
+        <p id="guessLeft">9</p>
+        <h3>You Have Guessed:</h3>
+        <p id="youHaveGuessed"></p>
         <br>
-        <h3> Guess what letter I am thinking of!</h3>
-    </header>
-
-    <!-- Begin Actual Game-->
-
-    <!-- Statistics Section-->
-    <p id="noWins">Wins: 0</p>
-    <p id="noLosses">Losses: 0</p>
-
-    <!-- Guesses Section-->
-    <p id="guessLeft">Guesses Left: 9</p>
-    <p id="youHaveGuessed">Your Guesses, so far:</p>
-
-    <h4 id="gameMessage"></h4>
-
+        <h4 id="gameMessage"></h4>
+    </div>
 
     <!-- Javascript Source-->
     <script type="text/javascript" src="assets/javascript/game.js"></script>
