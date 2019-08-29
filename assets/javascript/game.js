@@ -11,25 +11,27 @@
 // Then restart Game with Guesses going back to # and clear guess picks
 
 
-// -- List of letters computer can choose from //
 
 
+// -- This Makes the Game One Giant Function --//
 function psychicGame() {
+
+    // -- List of letters computer can choose from --//
     var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
         "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    // -- Randomly chooses the Computer letter //
+    // -- Randomly chooses the Computer letter --//
     var computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     console.log(computerLetter)
 
 
-    // -- Variables to hold the number of wins, losses, & guesses info //
+    // -- Variables to hold the number of wins, losses, & guesses info --//
     var wins = 0;
     var losses = 0;
     var guesses = 9;
     var inputGuess = [];
 
-    // -- Display Statistics Variables
+    // -- Display Statistics Variables --//
     var noGuessesLeft = document.getElementById("guessLeft");
     var listGuesses = document.getElementById("youHaveGuessed");
     var numLosses = document.getElementById("noLosses");
@@ -37,39 +39,41 @@ function psychicGame() {
     var resultsMesssage = document.getElementById("gameMessage");
 
 
-    // -- This function runs when a user guesses (aka presses a key)
+    // -- This function runs when a user guesses (aka presses a key) --//
     document.onkeyup = function (event) {
 
 
-        // -- This Records which Key is pressed by the user
+        // -- This Records which Key is pressed by the user --//
         var userGuess = event.key;
-        resultsMesssage.textContent = "";
-        //-- This should add the wrong guesses to inputGuess Array
-        //for (var i = 9; i = 0; i--) {
 
-        if ((userGuess !== computerLetter) && (guesses > 0)) {
+        // Clears Try Again Message When Restart the Game --//
+        resultsMesssage.textContent = "";
+
+        //-- This should add the wrong guesses to inputGuess Array --//
+        if ((userGuess !== computerLetter) && (guesses !== 0)) {
             inputGuess.push(userGuess);
             guesses--;
             noGuessesLeft.textContent = "Guesses Left: " + guesses;
             listGuesses.textContent = "Your Guesses, so far: " + inputGuess.join(", ");
 
-        } else if (guesses < 1) {
+        } else if (guesses === 0) {   //(var i = 0; i=0; losses++) -> Tried this which works the same as removing the lower losses++
             losses++;
             numLosses.textContent = "Losses: " + losses;
-            inputGuess.splice(0,8);
-            guesses = 10;
-            resultsMesssage.textContent = "You Lose! Press Any Button to Try Again";
+            inputGuess.splice(0, 8);
+            resultsMesssage.textContent = "Haha, You Lose! Press Any Button to Try Again";
             psychicGame();
 
 
-        } else {
+        } else { //If the Above conditions are both False, then the user must have won. 
             wins++;
             numWins.textContent = "Wins: " + wins;
-            inputGuess.splice(0,8);
-            guesses = 10;
+            inputGuess.splice(0, 8);
+            resultsMesssage.textContent = "You Psychic S.O.B.! Press Any To Prove You Can Do It Again";
             psychicGame();
         }
+
     }
 
 }
+// -- This Initiates the Game the FIRST time --//
 psychicGame();
