@@ -1,21 +1,25 @@
-//Computer has to randomly select a letter
-// Computer has to keep that letter until all guesses are used
-//User has to input a letter
-// Check to see if User Guess = Computer Selected Letter
-// If User = Computer then ADD 1 to the Wins Text 
-// Also Restart the Game and Reset Guesses left back to #, clear guess picks
-// If user !== Computer then SUBTRACT 1 from Guesses Left
-// Add Guessed Letter to "Your Guesses" lione (use .push?)
-// Continue until Guesses left = 0
-// When Guesses Left = 0 then ADD 1 to Losses text
-// Then restart Game with Guesses going back to # and clear guess picks
+// Page Loads
+// Computer Randomly Selects a Letter
+// User Presses Key
+// --- If UserKey === Computer Letter && Guesses > 0
+// -------Wins Go Up by 1
+// -------Remaining Guesses Resets to 9
+// ------- Guesses gets Cleared Out
+// ------- Computer Picks New Letter
+// --- Else if Userkey !== Computer Letter && Guesses > 0
+// ------- Remaining Guesses go down by 1
+// ------- Guessesed letters are recorded 
+// --- Else if Guesses === 0
+// ------- Losses goes up 1
+// ------- Guesses are cleared out
+// ------- Guess count resets to 9
+// ------- Try again message 
+// ------- Computer repicks letter
+
+// Notes: Put computer pick in its own function. Try using If statements one after the other. 
 
 
-
-
-// -- This Makes the Game One Giant Function --//
-function psychicGame() {
-
+function randomCompLetter (){
     // -- List of letters computer can choose from --//
     var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
         "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -24,7 +28,7 @@ function psychicGame() {
     var computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     console.log(computerLetter)
 
-
+}
     // -- Variables to hold the number of wins, losses, & guesses info --//
     var wins = 0;
     var losses = 0;
@@ -61,19 +65,15 @@ function psychicGame() {
             numLosses.textContent = "Losses: " + losses;
             inputGuess.splice(0, 8);
             resultsMesssage.textContent = "Haha, You Lose! Press Any Button to Try Again";
-            psychicGame();
+           
 
 
-        } else { //If the Above conditions are both False, then the user must have won. 
+        } else { //If the Above conditions are both False, then the user must have won & should +1 to wins, while clearing guesses. 
             wins++;
             numWins.textContent = "Wins: " + wins;
             inputGuess.splice(0, 8);
             resultsMesssage.textContent = "You Psychic S.O.B.! Press Any To Prove You Can Do It Again";
-            psychicGame();
+            
         }
 
     }
-
-}
-// -- This Initiates the Game the FIRST time --//
-psychicGame();
