@@ -7,6 +7,13 @@ body{
 h1, h2, h3{
     font-family:'Archivo Black', sans-serif;
 }
+h1{
+    font-size:2.2em;
+}
+
+h2{
+    font-size:1.5em;
+}
 
 h3{
     text-align:center;
@@ -24,6 +31,7 @@ p {
     opacity:.8;
     border: 3px solid grey;
     border-radius: 12px;
+    padding-bottom:30px;
 }
 
 header{
